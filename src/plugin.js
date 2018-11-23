@@ -19,7 +19,11 @@ let SimpleSVG = {
     id: {
       type: String,
       defualt: ''
-    }
+    },
+    preserveColor: {
+      type: [Boolean, String],
+      default: false
+    },
   },
   data () {
     return {
@@ -144,14 +148,16 @@ let SimpleSVG = {
           }
           let styleElement = inlinedSVG.getElementsByTagName('style')[0]
 
-          if (styleElement) {
-            // there are some svgs that have style tags which cause a global namespace pollution and conflict with other svgs,
-            // so let's remove the style tags and apply the style rules to each element that needs the rules
-            inlinedSVG = context.removeStyleTag(inlinedSVG)
-          }
+          if (!context.preserveColor) {
+            if (styleElement) {
+              // there are some svgs that have style tags which cause a global namespace pollution and conflict with other svgs,
+              // so let's remove the style tags and apply the style rules to each element that needs the rules
+              inlinedSVG = context.removeStyleTag(inlinedSVG)
+            }
 
-          // remove fill and stroke style declarations in the each path to enable color control
-          context.removeFillStrokeStyles(inlinedSVG)
+            // remove fill and stroke style declarations in the each path to enable color control
+            context.removeFillStrokeStyles(inlinedSVG)
+          }
 
           // Remove some of the attributes that aren't needed
           inlinedSVG.removeAttribute('xmlns:a')
@@ -167,8 +173,10 @@ let SimpleSVG = {
           if (context.id) inlinedSVG.id = context.id
           inlinedSVG.style.width = context.width
           inlinedSVG.style.height = context.height
-          inlinedSVG.style.fill = context.fill
-          inlinedSVG.style.stroke = context.stroke
+          if (!context.preserveColor) {
+            inlinedSVG.style.fill = context.fill
+            inlinedSVG.style.stroke = context.stroke
+          }
           inlinedSVG.classList.add(myClassName) // add an additional class
 
           context.$el.appendChild(inlinedSVG)

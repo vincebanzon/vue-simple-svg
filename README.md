@@ -40,6 +40,7 @@ and use in your component,
 | width | string | svg's width | '1em' |
 | height | string | svg's height | '1em' |
 | id | string | custom color | '' |
+| preserve | boolean | preserve original color | false |
 
 | events | description |
 | ------ | ------ |
@@ -49,7 +50,7 @@ and use in your component,
 ### Notes:
 - inline svg element has a class '.simple-svg'
 - inline svg has a div wrapper with a class '.simple-svg-wrapper'
-- fill/stroke style set to a path of a SVG will be removed unless its value is 'none'
+- fill/stroke style set to a path of a SVG will be removed unless its value is 'none' or preserveColor is true
 
 ### Demo:
 ![result](https://media.giphy.com/media/26FeVejNWHXsZiaIM/giphy.gif)
