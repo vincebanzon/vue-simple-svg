@@ -1,26 +1,27 @@
-# vue-simple-svg
+# vue-span-svg
+Base from vue-simple-svg but instead of using div, this uses span.
 A simple Vue.js plugin that allows you to use a component that loads a .svg image as an inline SVG so you can easily control its fill color from the parent component. No jQuery required.
 
 ### Installation:
 ```sh
-$ npm install vue-simple-svg
+$ npm install vue-span-svg
 ```
 
 ### Usage:
 initialize in your Vue's main file,
 ```javascript
 // as a plugin
-import VueSimpleSVG from 'vue-simple-svg'
-Vue.use(VueSimpleSVG)
+import VueSpanSVG from 'vue-span-svg'
+Vue.use(VueSpanSVG)
 
 // or as a component
-import {SimpleSVG} from 'vue-simple-svg'
-Vue.component('simple-svg', SimpleSVG)
+import {SpanSVG} from 'vue-span-svg'
+Vue.component('span-svg', SpanSVG)
 ```
 
 and use in your component,
 ```html
-<simple-svg
+<span-svg
   :filepath="'/PATH_/TO_/YOUR_/FILE.svg'"
   :fill="getFillColor"
   :stroke="getStrokeColor"
@@ -48,8 +49,8 @@ and use in your component,
 
 
 ### Notes:
-- inline svg element has a class '.simple-svg'
-- inline svg has a div wrapper with a class '.simple-svg-wrapper'
+- inline svg element has a class '.span-svg'
+- inline svg has a div wrapper with a class '.span-svg-wrapper'
 - fill/stroke style set to a path of a SVG will be removed unless its value is 'none' or preserveColor is true
 
 ### Demo:

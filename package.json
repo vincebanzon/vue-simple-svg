@@ -20,6 +20,7 @@
     "vue inline svg"
   ],
   "author": "Seiya Kobayashi",
+  "updated-by": "Vince banzon",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^7.2.6",

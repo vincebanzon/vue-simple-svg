@@ -1,15 +1,15 @@
 const CSSOM = require('cssom')
-const myClassName = 'simple-svg'
+const myClassName = 'span-svg'
 
-let SimpleSVG = {
+let SpanSVG = {
   render (createElement) {
-    return createElement('div', {
+    return createElement('span', {
       'class': [
-        'simple-svg-wrapper'
+        'span-svg-wrapper'
       ]
     })
   },
-  name: 'simple-svg',
+  name: 'span-svg',
   props: {
     filepath: String,
     fill: String,
@@ -209,8 +209,8 @@ let SimpleSVG = {
 
 let plugin = {
   install (Vue, options) {
-    Vue.component('simple-svg', SimpleSVG)
+    Vue.component('span-svg', SpanSVG)
   }
 }
 
-export {plugin as default, SimpleSVG}
+export {plugin as default, SpanSVG}
